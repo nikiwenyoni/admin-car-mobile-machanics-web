@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="padding-top: 5%;">
+  <div class="content">
+          <h1 class="form-title">Register User</h1>
+          <form [formGroup]="userForm" (ngSubmit)="register()">
+             <input type="text" placeholder="NAME" formControlName="firstName"><br>
+             <input type="text" placeholder="SURNAME" formControlName="lastName">
+
+          <div class="beside">
+            <label for="">Gender</label>
+              <select  formControlName="gender" (change)="selected()"> 
+                <option value="Male">MALE</option>
+                <option value="Female">FEMALE</option>
+                <option value="Not Specified">NON-BINARY</option>
+            </select>
+          </div>
+
+          <div class="beside">
+            <label for="">Role</label>
+            <select  formControlName="role" (change)="selectedRole()"> 
+                <option value="customer">Customer</option>
+                <option value="technician">Technician</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+              <input type="text" placeholder="PHONE NUMBER" formControlName="cellNumber">
+              <input type="email" placeholder="EMAIL ADDRESS" formControlName="email">
+              <input type="password" placeholder="PASSWORD" formControlName="firstPassword"><br>
+              <input type="password" placeholder="CONFIRM PASSWORD" formControlName="secondPassword"><br>
+
+              <div style="padding-top: 2%;" *ngIf="success_message != ''">
+                  <div class="alert alert-success">
+                      <strong>{{success_message}}</strong>
+                  </div>
+              </div>
+
+              <div class="alert alert-danger" style="padding-top: 2%;" *ngIf="error_message != ''">
+                  <strong>{{error_message}}</strong> 
+                </div>
+              <button class="btn btn-primary" type="submit">Register</button>
+          </form>
+      </div>
+      
+</div>
+
+   
+  
